@@ -1,0 +1,16 @@
+{
+    "name": "OrderIt",
+    "short_name": "OrderIt",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "description": "Food ordering app",
+    "icons": [
+      {
+        "src": "./images/logo.webp",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

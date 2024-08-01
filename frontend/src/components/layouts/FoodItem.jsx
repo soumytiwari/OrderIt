@@ -15,7 +15,7 @@ export default function FoodItem() {
           <p className="fooditem_des">
           A comforting, flavorful, and nutritious dish made with a variety of vegetables (onions, bell peppers, carrots, garlic), canned beans (kidney, black, pinto), fire-roasted tomatoes, and aromatic spices (chili powder, cumin, oregano). It is a great option for a weeknight dinner or a crowd-pleasing meal, and can be served with a range of toppings, such as cheese, sour cream, and cilantro. (Approx. 157-321 calories per serving)
           </p>
-          <p className="card-text">
+          <div className="card-text">
           <LiaRupeeSignSolid /> 
           180
           <br />
@@ -29,7 +29,7 @@ export default function FoodItem() {
             className={10 > 5 ? "greenColor" : "redColor"}>
             {10 > 5 ? "In Stock" : "Out of Stock"}</span></p>
           
-          </p>
+          </div>
         </div>
       </div>
     </div>
