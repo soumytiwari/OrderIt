@@ -85,3 +85,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - https://redux.js.org/api/compose
 - https://redux.js.org/usage/writing-logic-thunks
 - https://react-redux.js.org/api/hooks
+- https://console.cloudinary.com
+- https://mailtrap.io/
+- https://stripe.com/in
