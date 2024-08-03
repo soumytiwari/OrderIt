@@ -88,3 +88,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - https://console.cloudinary.com
 - https://mailtrap.io/
 - https://stripe.com/in
+- https://react-redux.js.org/api/hooks#useselector

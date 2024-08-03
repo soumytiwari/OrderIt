@@ -2,17 +2,21 @@ import React, { useEffect } from 'react'
 import CountRestaurant from './CountRestaurant'
 import Restaurant from './Restaurant'
 import { getRestaurants } from '../../actions/restaurantAction'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Home() {
   const dispatch = useDispatch()
+
+  const {
+    loading: restaurantsLoading,
+    error: errorLoading,
+    restaurants,
+  } = useSelector((state) => state.restaurants)
 
   // we will be managing external apis here, so what hook to  use? useEffect
   useEffect(() => {
     dispatch(getRestaurants())
   }, [dispatch])
-
-
 
   return (
     <>
