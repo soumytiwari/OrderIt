@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function CountRestaurant() {
   const dispatch = useDispatch()
 
-  const { loading, error, count } = useSelector((state) => state.restaurants)
+  const { loading, error, count, showVegOnly, pureVegRestaurantsCount } = useSelector((state) => state.restaurants)
+
 
   // mom tells you to keep the filled bottle in the fridge
   useEffect(() => {
@@ -21,7 +22,11 @@ export default function CountRestaurant() {
           : (
               <>
                 <p className="NumOfRestro">
-                  {count} <span className="Restro">Restaurant</span>
+                  {showVegOnly ? pureVegRestaurantsCount : count}{" "} 
+                  <span className="Restro">
+                    {showVegOnly ? pureVegRestaurantsCount === 1 ? "Restaurant" : 
+                    "Restaurants" : count === 1 ? "Restaurant" : "Restaurants"}
+                  </span>
                 </p>
                 <hr />
               </>

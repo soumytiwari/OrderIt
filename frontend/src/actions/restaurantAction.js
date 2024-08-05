@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ALL_RESTAURANTS_REQUEST, ALL_RESTAURANTS_SUCCESS } from "../constants/restaurantConstant"
+import { ALL_RESTAURANTS_FAIL, ALL_RESTAURANTS_REQUEST, ALL_RESTAURANTS_SUCCESS, CLEAR_ERROR, SORT_BY_RATINGS, SORT_BY_REVIEWS, TOGGLE_VEG_ONLY } from "../constants/restaurantConstant"
 
 export const getRestaurants = () => {
     // dispatch the request
@@ -19,7 +19,36 @@ export const getRestaurants = () => {
                 payload: {restaurants, count}                       // this is the data which will be sent to the store
             })
         } catch(err) {
-            console.log(err)
+            // console.log(err)
+            dispatch({
+                type: ALL_RESTAURANTS_FAIL,
+                payload: err.response.data.message
+            })
         }
+    }
+    // till now, total dispatch: requesting the data, successfully getting, and failing
+}
+
+export const sortByRatings = () => {
+    return {
+        type: SORT_BY_RATINGS,
+    }
+}
+
+export const sortByReviews = () => {
+    return {
+        type: SORT_BY_REVIEWS,
+    }
+}
+
+export const toggleVegOnly = () => {
+    return {
+        type: TOGGLE_VEG_ONLY,
+    }
+}
+
+export const clearError = () => {
+    return {
+        type: CLEAR_ERROR,
     }
 }
