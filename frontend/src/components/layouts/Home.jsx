@@ -56,7 +56,7 @@ export default function Home() {
                     ) : null
                   )
               ) : (
-                <Message variant="info">No Restaurant Found</Message>
+                <Message variant="info">No Restaurants Found</Message>
               )}
             </div>
           </section>

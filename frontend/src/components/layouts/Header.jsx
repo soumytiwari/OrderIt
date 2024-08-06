@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from './Search'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -7,7 +8,10 @@ export default function Header() {
      <nav className="navbar row stickey-top">
         {/* logo */}
         <div className="col-12 col-md-3">
+          {/* anchor tag (creates whole new dom) take you to another page whereas link (creates the new component's dom /-, containing its state), takes you to another link */}
+          <Link to="/">
             <img src="/images/logo.webp" alt="logo" className="logo" />
+          </Link>
         </div>
 
         {/* Search Bar and Search Icon */}
@@ -17,12 +21,14 @@ export default function Header() {
 
         {/* Cart and Login button */}
         <div className="col-12 col-md-3 mt-4 mt-md-0">
-          <span className="ml-3" id="cart">
-            Cart
-          </span>
-          <span className="ml-1" id='cart_count'>
-            0
-          </span>
+          <Link to="/Cart">
+            <span className="ml-3" id="cart">
+              Cart
+            </span>
+            <span className="ml-1" id='cart_count'>
+              0
+            </span>
+          </Link>
           {
             10 > 5 ? (
             <>
@@ -40,8 +46,6 @@ export default function Header() {
               </div>
             )
           }
-
-
         </div>
      </nav>
     </>
