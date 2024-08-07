@@ -1,11 +1,15 @@
 import React from 'react'
 import { LiaRupeeSignSolid } from "react-icons/lia";
 
-export default function FoodItem() {
+export default function FoodItem({ fooditem }) {
   return (
     <div className='col-sm-12 col-md-5 col-lg-3 my-3'>
       <div className="card p-3 rounded">
-        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2022/10/Vegetarian-chilli-206c469.jpg?quality=90&webp=true&resize=375,341" alt="veg food item" className="card-img-top mx-auto" />
+        <img 
+          src={fooditem.images[0].url}
+          alt="veg food item" 
+          className="card-img-top mx-auto" 
+        />
         {/* Cavolo nero orecchiette */}
         {/*  */}
 

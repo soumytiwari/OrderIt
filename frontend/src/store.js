@@ -6,11 +6,13 @@ import {
 } from "redux"
 import thunk from "redux-thunk"             //  thunk: a piece of code that does some delayed work
 import { restaurantReducer } from "./reducer/restaurantReducer"
+import { menuReducer } from "./reducer/menuReducer"
 
 
 
 const reducer = combineReducers({
     restaurants: restaurantReducer,
+    menus: menuReducer,
 })
 
 
