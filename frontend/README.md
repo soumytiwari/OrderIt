@@ -89,3 +89,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - https://mailtrap.io/
 - https://stripe.com/in
 - https://react-redux.js.org/api/hooks#useselector
+- https://www.npmjs.com/package/react-alert
