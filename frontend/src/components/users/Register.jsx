@@ -56,7 +56,7 @@ const Register = () => {
     formData.set("passwordConfirm", passwordConfirm)
     formData.set("phoneNumber", phoneNumber)
     if(avatar === "") {
-      formData.set("avatar", "images/images.png")
+      formData.set("avatar", "/images/images.png")
     } else {
       formData.set("avatar", avatar)
     }
