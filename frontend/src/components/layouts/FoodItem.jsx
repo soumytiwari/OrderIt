@@ -1,13 +1,17 @@
 import React from 'react'
+import { useAlert } from 'react-alert';
 import { LiaRupeeSignSolid } from "react-icons/lia";
 
-export default function FoodItem({ fooditem }) {
+export default function FoodItem({ fooditem, restaurant }) {
+
+  const alert = useAlert
+
   return (
     <div className='col-sm-12 col-md-5 col-lg-3 my-3'>
       <div className="card p-3 rounded">
         <img 
           src={fooditem.images[0].url}
-          alt="veg food item" 
+          alt={fooditem.name} 
           className="card-img-top mx-auto" 
         />
         {/* Cavolo nero orecchiette */}
@@ -15,13 +19,12 @@ export default function FoodItem({ fooditem }) {
 
         {/* heading and description */}
         <div className="card-body d-flex flex-column">
-          <h5 className="card-tittle">Easy vegetarian chilli</h5>
+          <h5 className="card-tittle">{fooditem.name}</h5>
           <p className="fooditem_des">
-          A comforting, flavorful, and nutritious dish made with a variety of vegetables (onions, bell peppers, carrots, garlic), canned beans (kidney, black, pinto), fire-roasted tomatoes, and aromatic spices (chili powder, cumin, oregano). It is a great option for a weeknight dinner or a crowd-pleasing meal, and can be served with a range of toppings, such as cheese, sour cream, and cilantro. (Approx. 157-321 calories per serving)
-          </p>
+          {fooditem.description}</p>
           <div className="card-text">
           <LiaRupeeSignSolid /> 
-          180
+          {fooditem.price}
           <br />
           <button type='button' 
           id='cart_btn'
@@ -30,8 +33,8 @@ export default function FoodItem({ fooditem }) {
           </button>
           <p>Status: {" "}
             <span id='stock_status'
-            className={10 > 5 ? "greenColor" : "redColor"}>
-            {10 > 5 ? "In Stock" : "Out of Stock"}</span></p>
+            className={fooditem.stock ? "greenColor" : "redColor"}>
+            {fooditem.stock ? "In Stock" : "Out of Stock"}</span></p>
           
           </div>
         </div>
