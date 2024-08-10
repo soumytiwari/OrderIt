@@ -1,11 +1,23 @@
-import React from 'react'
-import Search from './Search'
-import { Link } from 'react-router-dom'
+import React from "react";
+import Search from "./Search";
+import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/userAction"
 
 export default function Header() {
+  const alert = useAlert();
+  const dispatch = useDispatch();
+  const { user, loading } = useSelector((state) => state.auth);
+
+  const logoutHandler = () => {
+    dispatch(logout())
+    alert.success("Logged Out Successfully")
+  }
+
   return (
     <>
-     <nav className="navbar row stickey-top">
+      <nav className="navbar row stickey-top">
         {/* logo */}
         <div className="col-12 col-md-3">
           {/* anchor tag (creates whole new dom) take you to another page whereas link (creates the new component's dom /-, containing its state), takes you to another link */}
@@ -16,7 +28,7 @@ export default function Header() {
 
         {/* Search Bar and Search Icon */}
         <div className="col-12 col-md-6 mt-2 mt-md-6">
-          <Search/>
+          <Search />
         </div>
 
         {/* Cart and Login button */}
@@ -25,29 +37,61 @@ export default function Header() {
             <span className="ml-3" id="cart">
               Cart
             </span>
-            <span className="ml-1" id='cart_count'>
+            <span className="ml-1" id="cart_count">
               0
             </span>
           </Link>
-          {
-            10 > 5 ? (
+          {user ? (
             <>
-            <div className="ml-4 dropdown d-inline">
-              <figure className="avatar avatar-nav">
-                <img src="/images/images.png" alt="avatar" className="rounded-circle" />
-              </figure>
-              <span style={{color: 'white', fontWeight: 'bolder'}}>WSA Developer</span>
-            </div>
-            </>
-            )
-            : (
-              <div className="btn ml-4" id="login_btn">
-                Login
+              <div className="ml-4 dropdown d-inline">
+                <Link
+                  to="/"
+                  className="btn dropdown-toggle text-white mr-4"
+                  type="button"
+                  id="dropDownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <figure className="avatar avatar-nav">
+                    <img
+                      src="/images/images.png"
+                      alt="avatar"
+                      className="rounded-circle"
+                    />
+                  </figure>
+                  <span>{user && user.name}</span>
+                </Link>
+
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropDownMenuButton"
+                >
+                  <Link className="dropdown-item" to="/eats/orders/me/myOrders">
+                    Orders
+                  </Link>
+                  <Link className="dropdown-item" to="/users/me">
+                    Profile
+                  </Link>
+                  <Link
+                    className="dropdown-item"
+                    to="/"
+                    onClick={logoutHandler}
+                  >
+                    Logout
+                  </Link>
+                </div>
               </div>
+            </>
+          ) : (
+            !loading && (
+              <Link to="/users/login" className="btn ml-4" id="login_btn">
+                Login
+              </Link>
             )
-          }
+          )}
         </div>
-     </nav>
+      </nav>
     </>
-  )
+  );
 }
