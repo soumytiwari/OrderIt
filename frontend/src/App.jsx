@@ -6,11 +6,12 @@ import Footer from "./components/layouts/Footer";
 import Menu from "./components/layouts/Menu";
 import Login from './components/users/Login'
 import Register from './components/users/Register'
+import store from './store'
+import { loadUser } from "./actions/userAction";
+import Profile from './components/users/Profile'
 import Cart from "./components/cart/Cart";
 // import PageNotFound from "./404Page"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import store from './store'
-import { loadUser } from "./actions/userAction";
 
 export default function App() {
 
@@ -31,7 +32,8 @@ export default function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/eats/stores/:id/menus" element={<Menu />}/>
             <Route path='/users/login' element={<Login />}/>
-            <Route path="users/signup" element={<Register />}/>
+            <Route path="/users/signup" element={<Register />}/>
+            <Route path="/users/me" element={<Profile />} />
             {/* <Route path="/Cart" element={<Cart />}/> */}
             {/* <Route path="*" element={<PageNotFound />}/> */}
           </Routes>
