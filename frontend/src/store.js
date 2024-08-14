@@ -7,13 +7,15 @@ import {
 import thunk from "redux-thunk"; //  thunk: a piece of code that does some delayed work
 import { restaurantReducer } from "./reducer/restaurantReducer";
 import { menuReducer } from "./reducer/menuReducer";
-import { authReducer, userReducer } from "./reducer/userReducer";
+import { authReducer, forgetPasswordReducer, userReducer } from "./reducer/userReducer";
+import { forgotPassword } from "./actions/userAction";
 
 const reducer = combineReducers({
   restaurants: restaurantReducer,
   menus: menuReducer,
   auth: authReducer,
   user: userReducer,
+  forgotPassword: forgetPasswordReducer,
 });
 
 // allows to apply multiple store enhancer in a row; and is also useful for things like adding the redux dev-tools
