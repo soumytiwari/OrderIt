@@ -181,56 +181,56 @@ export const updatePassword = (passwords) => async (dispatch) => {
 };
 
 // forgot password
-export const forgotPassword = (email) => async(dispatch) => {
+export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({
       type: FORGOT_PASSWORD_REQUEST,
-    })
+    });
     const config = {
       headers: {
         "Content-Type": "application/json",
-      }
-    }
+      },
+    };
     const { data } = await axios.post(
       "/api/v1/users/forgetPassword",
       email,
-      config,
-    )
+      config
+    );
     dispatch({
       type: FORGOT_PASSWORD_SUCCESS,
-      payload: data.success
-    })
+      payload: data.success,
+    });
   } catch (error) {
     dispatch({
       type: FORGOT_PASSWORD_FAIL,
       payload: error.response.data.message,
     });
   }
-}
+};
 
-export const resetPassword = (token, passwords) => async(dispatch) => {
+export const resetPassword = (token, passwords) => async (dispatch) => {
   try {
     dispatch({
       type: NEW_PASSWORD_REQUEST,
-    })
+    });
     const config = {
       headers: {
         "Content-Type": "application/json",
-      }
-    }
+      },
+    };
     const { data } = await axios.patch(
       `/api/v1/users/resetPassword/${token}`,
       passwords,
-      config,
-    )
+      config
+    );
     dispatch({
       type: NEW_PASSWORD_SUCCESS,
-      payload: data.success
-    })
+      payload: data.success,
+    });
   } catch (error) {
     dispatch({
       type: NEW_PASSWORD_FAIL,
       payload: error.response.data.message,
     });
   }
-}
+};
