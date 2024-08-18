@@ -12,8 +12,9 @@ import {
   forgetPasswordReducer,
   userReducer,
 } from "./reducer/userReducer";
-import { forgotPassword } from "./actions/userAction";
+// import { forgotPassword } from "./actions/userAction";
 import { cartReducer } from "./reducer/cartReducer";
+import { myOrderReducer, newOrderReducer, orderDetailsReducer } from "./reducer/orderReducer";
 
 const reducer = combineReducers({
   restaurants: restaurantReducer,
@@ -22,6 +23,9 @@ const reducer = combineReducers({
   user: userReducer,
   forgotPassword: forgetPasswordReducer,
   cart: cartReducer,
+  newOrder: newOrderReducer,
+  myOrders: myOrderReducer,
+  orderDetails: orderDetailsReducer,
 });
 
 // allows to apply multiple store enhancer in a row; and is also useful for things like adding the redux dev-tools
