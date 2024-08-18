@@ -46,8 +46,8 @@ export default function Header() {
           {user ? (
             <>
               <div className="ml-4 dropdown d-inline">
-                <Link
-                  to="/"
+                <div
+                  // to="/"
                   className="btn dropdown-toggle text-white mr-4"
                   type="button"
                   id="dropDownMenuButton"
@@ -63,7 +63,7 @@ export default function Header() {
                     />
                   </figure>
                   <span>{user && user.name}</span>
-                </Link>
+                </div>
 
                 <div
                   className="dropdown-menu"
