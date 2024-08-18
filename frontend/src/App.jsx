@@ -15,8 +15,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ForgotPassword from "./components/users/ForgotPassword";
 import NewPassword from "./components/users/NewPassword";
 import Cart from "./components/cart/Cart";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCartItems } from "./actions/cartAction";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchCartItems } from "./actions/cartAction";
 
 export default function App() {
 
@@ -26,12 +26,12 @@ export default function App() {
     store.dispatch(loadUser())
   }, [])
 
-  const dispatch = useDispatch()
-
-  const { user } = useSelector((state) => state.auth)
-  if (user) {
-    dispatch(fetchCartItems())
-  }
+  // const dispatch = useDispatch()
+  // const { user } = useSelector((state) => state.auth)
+  // if (user) {
+  //   dispatch(fetchCartItems())
+  // }
+  // it shows error on fetching empty cart
 
   return (
     <BrowserRouter>
