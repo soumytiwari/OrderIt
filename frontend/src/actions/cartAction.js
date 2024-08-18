@@ -11,6 +11,7 @@ import {
 export const fetchCartItems = (alert) => async (dispatch) => {
   try {
     const response = await axios.get("/api/v1/eats/cart/get-cart");
+    console.log("Fetched cart items: ", response.data.data); // Debugging line
     dispatch({
       type: FETCH_CART,
       payload: response.data.data,
