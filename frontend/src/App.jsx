@@ -10,11 +10,13 @@ import store from './store'
 import { loadUser } from "./actions/userAction";
 import Profile from './components/users/Profile'
 import UpdateProfile from './components/users/UpdateProfile'
-import Cart from "./components/cart/Cart";
 // import PageNotFound from "./404Page"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ForgotPassword from "./components/users/ForgotPassword";
 import NewPassword from "./components/users/NewPassword";
+import Cart from "./components/cart/Cart";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCartItems } from "./actions/cartAction";
 
 export default function App() {
 
@@ -23,6 +25,13 @@ export default function App() {
   useEffect(() => {
     store.dispatch(loadUser())
   }, [])
+
+  const dispatch = useDispatch()
+
+  const { user } = useSelector((state) => state.auth)
+  if (user) {
+    dispatch(fetchCartItems())
+  }
 
   return (
     <BrowserRouter>
@@ -40,7 +49,7 @@ export default function App() {
             <Route path="/users/me/update" element={<UpdateProfile />} />
             <Route path="/users/forgotPassword" element={<ForgotPassword />} />
             <Route path="/users/resetPassword/:token" element={<NewPassword />} />
-            {/* <Route path="/Cart" element={<Cart />}/> */}
+            <Route path="/cart" element={<Cart />} />
             {/* <Route path="*" element={<PageNotFound />}/> */}
           </Routes>
         </div>
