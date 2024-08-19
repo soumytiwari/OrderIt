@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     const formData = new FormData()
-    formData.set("eamil", email)
+    formData.set("email", email)
 
     dispatch(forgotPassword(formData))
   }

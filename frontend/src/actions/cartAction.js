@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   ADD_TO_CART,
-  CLEAR_CART,
+  // CLEAR_CART,
   FETCH_CART,
   REMOVE_ITEM_CART,
   UPDATE_CART_ITEM,
@@ -98,19 +98,19 @@ export const removeItemFromCart =
     }
   };
 
-// clear cart
-export const deleteCart = (alert) => async (dispatch, getState) => {
-  try {
-    const { user } = getState().auth;
-    const response = await axios.delete("/api/v1/eats/cart/delete-cart", {
-      data: { userId: user._id },
-    });
+// // clear cart
+// export const deleteCart = (alert) => async (dispatch, getState) => {
+//   try {
+//     const { user } = getState().auth;
+//     const response = await axios.delete("/api/v1/eats/cart/delete-cart", {
+//       data: { userId: user._id },
+//     });
 
-    dispatch({
-      type: CLEAR_CART,
-      payload: response.data,
-    });
-  } catch (error) {
-    alert.error(error.response ? error.response.data.message : error.message);
-  }
-};
+//     dispatch({
+//       type: CLEAR_CART,
+//       payload: response.data,
+//     });
+//   } catch (error) {
+//     alert.error(error.response ? error.response.data.message : error.message);
+//   }
+// };

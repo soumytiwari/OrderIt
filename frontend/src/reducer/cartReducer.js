@@ -25,6 +25,7 @@ export const cartReducer = (
             return {
                 ...state,
                 restaurant: action.payload.restaurant,
+                cartItems: action.payload.items,
             }
 
         case REMOVE_ITEM_CART:
@@ -47,8 +48,6 @@ export const cartReducer = (
             }
     
         default:
-            return {
-                state,
-            }
+            return state;
     }
 }
